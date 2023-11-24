@@ -18,10 +18,9 @@ public class restaurante {
     public restaurante() {
     }
 
-    public restaurante(String nombre, String ubicacion, producto[] lista_p) {
+    public restaurante(String nombre, String ubicacion) {
         this.nombre = nombre;
         this.ubicacion = ubicacion;
-        this.lista_p = lista_p;
         saldo = 0;
     }
 
