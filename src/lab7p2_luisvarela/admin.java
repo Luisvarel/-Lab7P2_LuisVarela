@@ -58,7 +58,7 @@ public class admin {
             fw = new FileWriter(archivo, false);
             bw = new BufferedWriter(fw);
             for (usuario t : listaPersonas) {
-                bw.write(t.getNombre() + ";");
+                bw.write("[nombre:" + t.getNombre() + ",usuario:" + t.getUsuario() + ",contraseña:" + t.getContrasena() + ",]");
             }
             bw.flush();
         } catch (Exception ex) {
@@ -75,7 +75,7 @@ public class admin {
                 sc = new Scanner(archivo);
                 sc.useDelimiter(";");
                 while (sc.hasNext()) {
-                    listaPersonas.add(new usuario(sc.next(),sc.next(),sc.next()));
+                    listaPersonas.add(new usuario(sc.next(), sc.next(), sc.next()));
                 }
             } catch (Exception ex) {
             }
