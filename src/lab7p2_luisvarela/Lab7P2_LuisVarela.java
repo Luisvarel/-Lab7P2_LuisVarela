@@ -24,6 +24,7 @@ public class Lab7P2_LuisVarela extends javax.swing.JFrame {
         initComponents();
         iniciar_crear.setVisible(false);
         usuario.setVisible(false);
+        admin.setVisible(false);
     }
 
     /**
@@ -134,6 +135,11 @@ public class Lab7P2_LuisVarela extends javax.swing.JFrame {
         jTabbedPane1.addTab("usuario", jPanel1);
 
         jToggleButton2.setText("Restaurante");
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -897,6 +903,11 @@ public class Lab7P2_LuisVarela extends javax.swing.JFrame {
     private void cb_eliminar_RestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cb_eliminar_RestActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cb_eliminar_RestActionPerformed
+
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+        elige.setVisible(false);
+        admin.setVisible(true);
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     /**
      * @param args the command line arguments
