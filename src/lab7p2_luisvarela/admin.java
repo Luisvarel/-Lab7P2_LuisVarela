@@ -32,7 +32,7 @@ public class admin {
         this.archivo = archivo;
     }
 
-    public ArrayList<usuario> getListaPersonas() {
+    public ArrayList<usuario> getListaUsuarios() {
         return listaPersonas;
     }
 
@@ -46,7 +46,7 @@ public class admin {
     }
 
     //extra mutador
-    public void setPersona(usuario p) {
+    public void setusuario(usuario p) {
         this.listaPersonas.add(p);
     }
 
