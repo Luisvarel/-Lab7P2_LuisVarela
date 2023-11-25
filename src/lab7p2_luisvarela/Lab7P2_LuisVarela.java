@@ -857,7 +857,19 @@ public class Lab7P2_LuisVarela extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+        for (restaurante listaPersona : admin_res.getListaPersonas()) {
+            DefaultTreeModel m = (DefaultTreeModel) tree_restaurantes.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) m.getRoot();
+            DefaultMutableTreeNode nodo_restaurante = new DefaultMutableTreeNode(listaPersona);
+            DefaultMutableTreeNode nodo_p1 = new DefaultMutableTreeNode(listaPersona.getLista_p()[0]);
+            DefaultMutableTreeNode nodo_p2 = new DefaultMutableTreeNode(listaPersona.getLista_p()[1]);
+            DefaultMutableTreeNode nodo_p3 = new DefaultMutableTreeNode(listaPersona.getLista_p()[2]);
+            nodo_restaurante.add(nodo_p1);
+            nodo_restaurante.add(nodo_p2);
+            nodo_restaurante.add(nodo_p3);
+            raiz.add(nodo_restaurante);
+            m.reload();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
