@@ -4,6 +4,9 @@
  */
 package lab7p2_luisvarela;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -40,7 +43,7 @@ public class Lab7P2_LuisVarela extends javax.swing.JFrame {
         jTabbedPane3 = new javax.swing.JTabbedPane();
         jPanel10 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cb_m = new javax.swing.JComboBox<>();
         jButton3 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
@@ -65,6 +68,7 @@ public class Lab7P2_LuisVarela extends javax.swing.JFrame {
         c_contra = new javax.swing.JTextField();
         c_nombre = new javax.swing.JTextField();
         crear_u = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -135,9 +139,14 @@ public class Lab7P2_LuisVarela extends javax.swing.JFrame {
 
         jTabbedPane3.addTab("arbol", jPanel10);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "nombre", "usuario", "contraseña" }));
+        cb_m.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "nombre", "usuario", "contraseña" }));
 
         jButton3.setText("listo");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -147,7 +156,7 @@ public class Lab7P2_LuisVarela extends javax.swing.JFrame {
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGap(193, 193, 193)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(cb_m, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGap(201, 201, 201)
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -157,7 +166,7 @@ public class Lab7P2_LuisVarela extends javax.swing.JFrame {
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGap(130, 130, 130)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cb_m, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(62, 62, 62)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(62, Short.MAX_VALUE))
@@ -215,6 +224,11 @@ public class Lab7P2_LuisVarela extends javax.swing.JFrame {
         usuario.add(jTabbedPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 660, 410));
 
         jButton2.setText("<-");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         usuario.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
         iniciar_crear.setBackground(new java.awt.Color(255, 255, 255));
@@ -295,14 +309,14 @@ public class Lab7P2_LuisVarela extends javax.swing.JFrame {
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(in_contra, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addComponent(Listo_in, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45))
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel5Layout.createSequentialGroup()
                     .addGap(60, 60, 60)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(347, Short.MAX_VALUE)))
+                    .addContainerGap(293, Short.MAX_VALUE)))
         );
 
         jTabbedPane2.addTab("Iniciar sesion", jPanel5);
@@ -410,7 +424,15 @@ public class Lab7P2_LuisVarela extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Crear cuenta", crear);
 
-        iniciar_crear.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        iniciar_crear.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 54, -1, 440));
+
+        jButton5.setText("<-");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        iniciar_crear.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -455,24 +477,97 @@ public class Lab7P2_LuisVarela extends javax.swing.JFrame {
         if (c_nombre != null && c_usuario != null && c_contra != null) {
             usuario temp = new usuario(c_nombre.getText(), c_usuario.getText(), c_contra.getText());
             admin_usua.setusuario(temp);
+            try {
+                admin_usua.escribirArchivo();
+            } catch (Exception ex) {
+            }
         } else {
             JOptionPane.showMessageDialog(crear, "Por favor llene todas las casillas");
         }
     }//GEN-LAST:event_crear_uActionPerformed
 
     private void Listo_inActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Listo_inActionPerformed
-        boolean correcto=false;
+        boolean correcto = false;
         for (usuario listaUsuario : admin_usua.getListaUsuarios()) {
-            if (listaUsuario.getUsuario().equals(in_usuario)&&listaUsuario.getContrasena().equals(in_contra)) {
-                correcto=true;
+            if (listaUsuario.getUsuario().equals(in_usuario) && listaUsuario.getContrasena().equals(in_contra)) {
+                en_sesion = listaUsuario;
+                correcto = true;
             }
         }
         if (correcto) {
-            
-        }else if("admin".equals(in_usuario)&&"admin".equals(in_contra)){
-            
+            iniciar_crear.setVisible(false);
+            usuario.setVisible(true);
+        } else if ("admin".equals(in_usuario) && "admin".equals(in_contra)) {
+
         }
     }//GEN-LAST:event_Listo_inActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        elige.setVisible(true);
+        iniciar_crear.setVisible(false);
+        usuario.setVisible(false);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        elige.setVisible(false);
+        iniciar_crear.setVisible(true);
+        usuario.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        /*
+    nombre
+    usuario
+    contraseña
+         */
+        if (cb_m.getSelectedIndex() >= 0) {
+            switch (cb_m.getSelectedIndex()) {
+                case 0 -> {
+                    String temp = JOptionPane.showInputDialog("Ingrese su nombre:");
+                    if (temp != null) {
+                        for (usuario listaUsuario : admin_usua.getListaUsuarios()) {
+                            if (listaUsuario == en_sesion) {
+                                admin_usua.getListaUsuarios().get(admin_usua.getListaUsuarios().indexOf(listaUsuario)).setNombre(temp);
+                            }
+                        }
+                        try {
+                            admin_usua.escribirArchivo();
+                        } catch (Exception ex) {
+                        }
+                    }
+                }
+                case 1 -> {
+                    String temp = JOptionPane.showInputDialog("Ingrese su nueva usuario:");
+                    if (temp != null) {
+                        for (usuario listaUsuario : admin_usua.getListaUsuarios()) {
+                            if (listaUsuario == en_sesion) {
+                                admin_usua.getListaUsuarios().get(admin_usua.getListaUsuarios().indexOf(listaUsuario)).setNombre(temp);
+                            }
+                        }
+                        try {
+                            admin_usua.escribirArchivo();
+                        } catch (Exception ex) {
+                        }
+                    }
+                }
+                case 2 -> {
+                    String temp = JOptionPane.showInputDialog("Ingrese su nueva contraseña:");
+                    if (temp != null) {
+                        for (usuario listaUsuario : admin_usua.getListaUsuarios()) {
+                            if (listaUsuario == en_sesion) {
+                                admin_usua.getListaUsuarios().get(admin_usua.getListaUsuarios().indexOf(listaUsuario)).setNombre(temp);
+                            }
+                        }
+                        try {
+                            admin_usua.escribirArchivo();
+                        } catch (Exception ex) {
+                        }
+
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -508,6 +603,7 @@ public class Lab7P2_LuisVarela extends javax.swing.JFrame {
             }
         });
     }
+    private usuario en_sesion;
     admin admin_usua = new admin("./usuario.txt");
     admin_restaurante admin_res = new admin_restaurante("./restaurante.txt");
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -515,6 +611,7 @@ public class Lab7P2_LuisVarela extends javax.swing.JFrame {
     private javax.swing.JTextField c_contra;
     private javax.swing.JTextField c_nombre;
     private javax.swing.JTextField c_usuario;
+    private javax.swing.JComboBox<String> cb_m;
     private javax.swing.JPanel crear;
     private javax.swing.JButton crear_u;
     private javax.swing.JPanel elige;
@@ -524,7 +621,7 @@ public class Lab7P2_LuisVarela extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
