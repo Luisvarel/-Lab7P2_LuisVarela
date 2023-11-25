@@ -58,7 +58,7 @@ public class admin_restaurante {
             fw = new FileWriter(archivo, false);
             bw = new BufferedWriter(fw);
             for (restaurante t : listaPersonas) {
-                bw.write("[nombre: "+t.getNombre()+", ubicacion: "+t.getUbicacion()+", Lista de producto: "+" Nombre: "+t.getLista_p()[0].getNombre()+", Precio: "+t.getLista_p()[0].getPrecio()+", "+t.getLista_p()[1]+", "+t.getLista_p()[2]+", saldo: "+t.getSaldo()+", ]");
+                bw.write("[nombre: "+t.getNombre()+", ubicacion: "+t.getUbicacion()+", Lista de producto: "+" Nombre: "+t.getLista_p()[0].getNombre()+", Precio: "+t.getLista_p()[0].getPrecio()+", Nombre: "+t.getLista_p()[1].getNombre()+", Precio: "+t.getLista_p()[1].getPrecio()+", Nombre: "+t.getLista_p()[2].getNombre()+", Precio: "+t.getLista_p()[2].getPrecio()+", saldo: "+ t.getSaldo()+", ]"); 
             }
             bw.flush();
         } catch (Exception ex) {
@@ -83,11 +83,17 @@ public class admin_restaurante {
                     a=a.replace("Lista de producto:","");
                     a=a.replace("saldo:","");
                     a=a.replace("]","");
+                    a=a.replace("Nombre:", "");
+                    a=a.replace("Precio:", "");
+                    a=a.replace("saldo:", "");
                     String []temp=a.split(",");
                     restaurante r=new restaurante(temp[0], temp[1]);
-                    r.setSaldo(Integer.parseInt(temp[5]));
-                    String[]lista_producto={temp[2],temp[3],temp[4]};
+                    producto p1=new producto(temp[2], Integer.parseInt(temp[3]));
+                    producto p2=new producto(temp[4], Integer.parseInt(temp[5]));
+                    producto p3=new producto(temp[6], Integer.parseInt(temp[7]));
+                    producto[]lista_producto={p1,p2,p3};
                     r.setLista_p(lista_producto);
+                    r.setSaldo(Integer.parseInt(temp[8]));
                     listaPersonas.add(r);
                 }
             } catch (Exception ex) {
