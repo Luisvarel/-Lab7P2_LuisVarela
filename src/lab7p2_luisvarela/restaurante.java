@@ -56,4 +56,9 @@ public class restaurante {
         this.saldo = saldo;
     }
 
+    @Override
+    public String toString() {
+        return nombre ;
+    }
+
 }
