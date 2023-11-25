@@ -101,7 +101,10 @@ public class Lab7P2_LuisVarela extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         cb_eliminar_Rest = new javax.swing.JComboBox<>();
         jButton7 = new javax.swing.JButton();
-        jPanel6 = new javax.swing.JPanel();
+        jPanel13 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tree_restaurantes1 = new javax.swing.JTree();
+        jButton8 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -681,24 +684,48 @@ public class Lab7P2_LuisVarela extends javax.swing.JFrame {
 
         jTabbedPane4.addTab("eliminar restaurante", jPanel2);
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 625, Short.MAX_VALUE)
+        treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("restaurantes");
+        tree_restaurantes1.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
+        jScrollPane3.setViewportView(tree_restaurantes1);
+
+        jButton8.setText("update");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel13Layout = new javax.swing.GroupLayout(jPanel13);
+        jPanel13.setLayout(jPanel13Layout);
+        jPanel13Layout.setHorizontalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80)
+                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(16, Short.MAX_VALUE))
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 468, Short.MAX_VALUE)
+        jPanel13Layout.setVerticalGroup(
+            jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel13Layout.createSequentialGroup()
+                .addGroup(jPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel13Layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
-        jTabbedPane4.addTab("arbol de restaurantes", jPanel6);
+        jTabbedPane4.addTab("arbol", jPanel13);
 
         javax.swing.GroupLayout adminLayout = new javax.swing.GroupLayout(admin);
         admin.setLayout(adminLayout);
         adminLayout.setHorizontalGroup(
             adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane4)
+            .addComponent(jTabbedPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 630, Short.MAX_VALUE)
         );
         adminLayout.setVerticalGroup(
             adminLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -909,6 +936,22 @@ public class Lab7P2_LuisVarela extends javax.swing.JFrame {
         admin.setVisible(true);
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        for (restaurante listaPersona : admin_res.getListaPersonas()) {
+            DefaultTreeModel m = (DefaultTreeModel) tree_restaurantes.getModel();
+            DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) m.getRoot();
+            DefaultMutableTreeNode nodo_restaurante = new DefaultMutableTreeNode(listaPersona);
+            DefaultMutableTreeNode nodo_p1 = new DefaultMutableTreeNode(listaPersona.getLista_p()[0]);
+            DefaultMutableTreeNode nodo_p2 = new DefaultMutableTreeNode(listaPersona.getLista_p()[1]);
+            DefaultMutableTreeNode nodo_p3 = new DefaultMutableTreeNode(listaPersona.getLista_p()[2]);
+            nodo_restaurante.add(nodo_p1);
+            nodo_restaurante.add(nodo_p2);
+            nodo_restaurante.add(nodo_p3);
+            raiz.add(nodo_restaurante);
+            m.reload();
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -975,6 +1018,7 @@ public class Lab7P2_LuisVarela extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -997,14 +1041,15 @@ public class Lab7P2_LuisVarela extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTabbedPane jTabbedPane3;
@@ -1012,6 +1057,7 @@ public class Lab7P2_LuisVarela extends javax.swing.JFrame {
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JTree tree_restaurantes;
+    private javax.swing.JTree tree_restaurantes1;
     private javax.swing.JPanel usuario;
     // End of variables declaration//GEN-END:variables
 }
