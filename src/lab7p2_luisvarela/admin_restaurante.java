@@ -58,7 +58,7 @@ public class admin_restaurante {
             fw = new FileWriter(archivo, false);
             bw = new BufferedWriter(fw);
             for (restaurante t : listaPersonas) {
-                bw.write("[ nombre: "+t.getNombre()+", ubicacion: "+t.getUbicacion()+", Lista de producto: "+t.getLista_p()[0]+", "+t.getLista_p()[1]+", "+t.getLista_p()[2]+", saldo: "+t.getSaldo()+", ]");
+                bw.write("[nombre: "+t.getNombre()+", ubicacion: "+t.getUbicacion()+", Lista de producto: "+" Nombre: "+t.getLista_p()[0].getNombre()+", Precio: "+t.getLista_p()[0].getPrecio()+", "+t.getLista_p()[1]+", "+t.getLista_p()[2]+", saldo: "+t.getSaldo()+", ]");
             }
             bw.flush();
         } catch (Exception ex) {
@@ -73,10 +73,22 @@ public class admin_restaurante {
         if (archivo.exists()) {
             try {
                 sc = new Scanner(archivo);
-                String a="[ nombre: "+t.getNombre()+", ubicacion: "+t.getUbicacion()+", Lista de producto: "+t.getLista_p()[0]+", "+t.getLista_p()[1]+", "+t.getLista_p()[2]+", saldo: "+t.getSaldo()+", ]";
-                sc.useDelimiter(";");
+               
                 while (sc.hasNext()) {
-                    listaPersonas.add(new restaurante(sc.next(), sc.next()));
+                    String a="";
+                    a+=sc.nextLine();
+                    a=a.replace("[nombre:","");
+                    a=a.replace("ubicacion:","");
+                    a=a.replace("Lista de producto:","");
+                    a=a.replace("Lista de producto:","");
+                    a=a.replace("saldo:","");
+                    a=a.replace("]","");
+                    String []temp=a.split(",");
+                    restaurante r=new restaurante(temp[0], temp[1]);
+                    r.setSaldo(Integer.parseInt(temp[5]));
+                    String[]lista_producto={temp[2],temp[3],temp[4]};
+                    r.setLista_p(lista_producto);
+                    listaPersonas.add(r);
                 }
             } catch (Exception ex) {
             }
