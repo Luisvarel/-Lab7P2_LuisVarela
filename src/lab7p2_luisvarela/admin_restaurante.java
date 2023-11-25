@@ -58,7 +58,7 @@ public class admin_restaurante {
             fw = new FileWriter(archivo, false);
             bw = new BufferedWriter(fw);
             for (restaurante t : listaPersonas) {
-                bw.write(t.getNombre() + ";");
+                bw.write("[ nombre: "+t.getNombre()+", ubicacion: "+t.getUbicacion()+", Lista de producto: "+t.getLista_p()[0]+", "+t.getLista_p()[1]+", "+t.getLista_p()[2]+", saldo: "+t.getSaldo()+", ]");
             }
             bw.flush();
         } catch (Exception ex) {
@@ -73,6 +73,7 @@ public class admin_restaurante {
         if (archivo.exists()) {
             try {
                 sc = new Scanner(archivo);
+                String a="[ nombre: "+t.getNombre()+", ubicacion: "+t.getUbicacion()+", Lista de producto: "+t.getLista_p()[0]+", "+t.getLista_p()[1]+", "+t.getLista_p()[2]+", saldo: "+t.getSaldo()+", ]";
                 sc.useDelimiter(";");
                 while (sc.hasNext()) {
                     listaPersonas.add(new restaurante(sc.next(), sc.next()));

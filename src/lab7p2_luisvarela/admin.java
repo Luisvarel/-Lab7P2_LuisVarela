@@ -58,7 +58,7 @@ public class admin {
             fw = new FileWriter(archivo, false);
             bw = new BufferedWriter(fw);
             for (usuario t : listaPersonas) {
-                bw.write("[nombre:" + t.getNombre() + ",usuario:" + t.getUsuario() + ",contraseña:" + t.getContrasena() + ",]");
+                bw.write("[nombre: " + t.getNombre() + ", usuario: " + t.getUsuario() + ", contraseña: " + t.getContrasena() + ", saldo: "+ t.getSaldo()+", ]");
             }
             bw.flush();
         } catch (Exception ex) {
@@ -73,9 +73,19 @@ public class admin {
         if (archivo.exists()) {
             try {
                 sc = new Scanner(archivo);
-                sc.useDelimiter(";");
                 while (sc.hasNext()) {
-                    listaPersonas.add(new usuario(sc.next(), sc.next(), sc.next()));
+                    String a = "";
+                    a += sc.nextLine();
+                    a = a.replace("saldo:", "");
+                    a = a.replace("[nombre:", "");
+                    a = a.replace("]", "");
+                    a = a.replace("usuario:", "");
+                    a = a.replace("contraseña:", "");
+                    a = a.replace("saldo:", "");
+                    String[] temp = a.split(",");
+                    usuario temp1=new usuario(temp[0], temp[1], temp[2]);
+                    temp1.setSaldo(Integer.parseInt(temp[3]));
+                    listaPersonas.add(new usuario(temp[0], temp[1], temp[2]));
                 }
             } catch (Exception ex) {
             }
